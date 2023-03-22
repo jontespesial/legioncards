@@ -12,7 +12,7 @@ const Card = ({ card }) => {
 
     return (
         <div className="card-unit">
-            <text className="title">{card.title}</text>
+            <p className="title font-title">{card.title}</p>
             <UnitType type={card.unitType} />
             <p className="unitcount">{card.unitCount}</p>
             <div className="upgrades">
@@ -23,8 +23,8 @@ const Card = ({ card }) => {
             <div className="keywords">
                 {card.keywords.map((keyword, index) => (
                     <div className={"keyword" + (index == 0 ? " first" : "")} key={index}>
-                        <text className="keyword-title">{keyword.title}</text>
-                        <text className="keyword-description">{keyword.description}</text>
+                        <p className="keyword-title font-title">{keyword.title}</p>
+                        <p className="keyword-description font-description">{keyword.description}</p>
                     </div>
                 ))}
             </div>

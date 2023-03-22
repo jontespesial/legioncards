@@ -15,6 +15,7 @@ img.mall {
 text, p {
     margin: 0px;
     padding: 0px;
+    display: inline;
 }
 
 .icon {
@@ -43,10 +44,11 @@ text, p {
     box-sizing: border-box;
 }
 
-text.title {
+p.title {
     width: 40%;
     position: absolute;
     text-align: center;
+    font-size: 14px;
     top: 2px;
     left: 70px;
 }

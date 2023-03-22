@@ -2,15 +2,27 @@
 @font-face {
   font-family: "SWLEGION";
   src: url('./resources/Legionfont0.1.4.ttf');
-  font-weight: normal;
-  font-style: normal;
 }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+    font-family: "weapons"; /* AeroMatics */
+    src: url('./resources/fonts/AeroMaticsRegular.ttf');
+
+    font-family: "description"; /* Mignon-MediumIt */
+    src: url('./resources/fonts/Mignon-MediumIt.otf');
+
+    font-family: "title"; /* Mignon-MediumIt */
+    src: url('./resources/fonts/Oxanium-ExtraBold.ttf');
+}
+
+.font-description {
+  font-family: description;
+}
+
+.font-title {
+  font-family: title;
+}
+
+.font-weapon {
+  font-family: weapons;
 }
