@@ -1,0 +1,40 @@
+{
+    "title": "General Veers",
+    "unique": true,
+    "faction": "empire",
+    "unitType": "operative",
+    "unitCount": 1,
+    "defenceType": "red",
+    "surgeAttack": true,
+    "surgeDefence": true,
+    "speed": 2,
+    "hp": 2,
+    "courage": 1,
+    "upgrades": [{
+        "icon": "A"
+    }, {
+        "icon": "B"
+    }, {
+        "icon": "U"
+    }],
+    "keywords" : [{
+        "title": "Spotter",
+        "level": 2,
+        "description": "(Choose up to 2 friendly units at range 1. Each chosen unit gains an aim token.)"
+    },
+    {
+        "title": "Inspire 1",
+        "level": 1,
+        "description": "(After your Rally step, remove up to 1 suppression token from another friendly unit at range 1-2.)"
+    },
+    {
+        "title": "Precise 1",
+        "level": 1,
+        "description": ""
+    },
+    {
+        "title": "Sharpshooter 1",
+        "level": 1,
+        "description": "(While performing a ranged attack, reduce the defender's cover by 1.)"
+    }]
+}

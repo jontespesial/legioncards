@@ -1,0 +1,81 @@
+.cardbuilder-container {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    width: 500px;
+}
+
+.form {
+    margin-right: 8px;
+    padding: 5px;
+}
+
+label {
+    margin: auto;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+input.number {
+    width: 30px;
+}
+
+button.form {
+    width: 30px;
+    border: 0px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 15px;
+    line-height: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+button.add {
+    background-color: green;
+}
+
+button.remove {
+    background-color: rgb(197, 31, 2);
+}
+
+.builder-keywords {
+    
+}
+
+.builder-keyword {
+
+}
+
+.builder-keyword label {
+    font-size: 12px;
+}
+
+.builder-keyword input {
+    padding: 2px;
+}
+
+.builder-keyword .title {
+    width: 80px;
+}
+
+.builder-keyword .description {
+
+}
+
+.form.attackdice {
+    font-size: 10px;
+}

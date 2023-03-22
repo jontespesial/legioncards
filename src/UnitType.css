@@ -1,0 +1,21 @@
+.commander::before {
+    content: "\0035";
+}
+
+.operative::before {
+    margin-right: -1.5px;
+    content: "\0037";
+}
+
+.trooper::before {
+    margin-right: 2.5px;
+    content: "\0036";
+}
+
+.test::before {
+    content: "\0038";
+}
+
+.tester::before {
+    content: "\0039";
+}

@@ -1,0 +1,195 @@
+.card-unit {
+    position: relative;
+    height: 62mm;
+    width: 88mm;
+    border: 2px solid rgb(56, 225, 255);
+    margin: 5px;
+}
+
+img.mall {
+    width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+text, p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.icon {
+    font-family: SWLEGION;
+}
+
+.icon.large {
+    font-size: 24px;
+}
+
+.icon.small {
+    font-size: 20px;
+}
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+    border-radius: 50%;
+    background-color: white;
+    border-radius: 50%;
+    outline: 5px solid black;
+    outline-offset: -4px;
+    box-sizing: border-box;
+}
+
+text.title {
+    width: 40%;
+    position: absolute;
+    text-align: center;
+    top: 2px;
+    left: 70px;
+}
+
+/* --- Unit types --- */
+.unittype {
+    position: absolute;
+    top: 1px;
+    right: 78.5px;
+}
+
+p.unitcount {
+    position: absolute;
+    right: 87px;
+    top: 20px;
+    font-size: 10px;
+    font-weight: 100;
+    color:white;
+}
+
+/* --- UPGRADES --- */
+.upgrades {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.upgrade {
+    margin-bottom: 1px;
+}
+
+/* --- Stats --- */
+p.hpstats {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    right: -12px;
+    top: -1px;
+}
+
+.health, .health-points {
+    position: absolute;
+    right: 23px;
+    top: 76px;
+    color: rgb(0, 185, 0);
+}
+
+.health::before {
+    content: "\004c";
+}
+
+.courage, .courage-points {
+    position: absolute;
+    right: 22px;
+    top: 98px;
+    color: rgb(255, 208, 22);
+}
+
+.courage::before {
+    content: "\006d";
+}
+
+/* --- SURGES --- */
+.surges {
+    /*
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-height: 40px;
+    right: 1px;
+    top: 126px;
+    */
+}
+
+.surge {
+    position: absolute;
+    height: 15px;
+    object-fit: cover;
+}
+
+.surge.attack {
+    top:126px;
+    right: 1px;
+}
+.surge.defence {
+    top:141px;
+    right: 1px;
+}
+
+/* --- KEYWORDS --- */
+.keywords {
+    position: absolute;
+    top: 30px;
+    left: 32px;
+    max-width: 225px;
+}
+.keyword.first {
+    max-width: 200px;
+}
+.keyword {
+    display: inline-block;
+    line-height: 0.8;
+}
+
+.keyword-title {
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.keyword-description {
+    font-size: 9.5px;
+    font-style: italic;
+}
+
+/* --- Movementspeed --- */
+.movementspeed {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 65px;
+    left: 277px;
+}
+
+.speed {
+    height: 6.4px;
+}
+
+@media screen {
+    .card-unit {
+        background-color: red;
+    }
+}
+
+@media print {
+    .card-unit {
+        background-color: green;
+    }
+
+    h4 {
+        display: none;
+    }
+}

@@ -1,0 +1,55 @@
+.dice {
+    font-family: SWLEGION;
+    position: absolute;
+}
+
+.dice.white {
+    color: white;
+}
+
+.dice.red {
+    color: rgb(167, 14, 14);
+}
+
+.dice.black {
+    color: rgb(20, 20, 20);
+}
+
+/* --- DEFENCE --- */
+
+.dice.defence {
+    top: 90px;
+    right: 48px;
+}
+
+.dice.defence.red::after {
+    content: "\0045";
+    color: rgb(167, 14, 14);
+}
+
+.dice.defence.red::before {
+    content: "\0044";
+    position: absolute;
+    color: white;
+}
+
+.dice.defence.white::after {
+    content: "\0045";
+    color: white;
+}
+
+.dice.defence.white::before {
+    content: "\0044";
+    position: absolute;
+    color: rgb(167, 14, 14);
+}
+
+/* --- ATTACK --- */
+.dice.attackpool {
+    
+}
+
+.dice.attack {
+    content: "\0045";
+}
+
