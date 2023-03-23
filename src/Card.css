@@ -36,12 +36,14 @@ text, p {
 
 .black {
     color: black;
+    /*
     border-radius: 50%;
     background-color: white;
     border-radius: 50%;
     outline: 5px solid black;
     outline-offset: -4px;
     box-sizing: border-box;
+    */
 }
 
 p.title {
@@ -51,6 +53,10 @@ p.title {
     font-size: 14px;
     top: 2px;
     left: 70px;
+}
+
+p.title.unique::before {
+    content:"• ";
 }
 
 /* --- Unit types --- */
@@ -103,7 +109,7 @@ p.hpstats {
 
 .courage, .courage-points {
     position: absolute;
-    right: 22px;
+    right: 23px;
     top: 98px;
     color: rgb(255, 208, 22);
 }

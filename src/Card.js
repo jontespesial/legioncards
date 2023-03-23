@@ -1,6 +1,7 @@
 import React from "react"
 
 import "./Card.css"
+import UpgradeSlot from "./components/UpgradeSlot"
 import "./Dice.css"
 import empire from "./resources/mall_empire.png"
 import movement from "./resources/movement.png"
@@ -12,12 +13,12 @@ const Card = ({ card }) => {
 
     return (
         <div className="card-unit">
-            <p className="title font-title">{card.title}</p>
+            <p className={card.unique ? "title font-title unique" : "title font-title"}>{card.title}</p>
             <UnitType type={card.unitType} />
             <p className="unitcount">{card.unitCount}</p>
             <div className="upgrades">
                 {card.upgrades.map((upgrade, index) => (
-                    <text className="upgrade icon large white" key={index}>{upgrade.icon}</text>
+                    <UpgradeSlot type={upgrade.type}/>
                 ))}
             </div>
             <div className="keywords">

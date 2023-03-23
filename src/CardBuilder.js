@@ -1,6 +1,7 @@
 import React from "react"
 import "./CardBuilder.css"
 import ToggleSwitch from "./components/ToggleSwitch";
+import UpgradeSlot from "./components/UpgradeSlot";
 
 const CardBuilder = ({ card, updateCard }) => {
 
@@ -27,6 +28,11 @@ const CardBuilder = ({ card, updateCard }) => {
         updateCard(updatedCard);
     }
 
+    const updateUpgradeType = (input, index) => {
+        const updatedCard = { ...card, upgrades: card.upgrades.map((upgrade, i) => i === index ? { ...upgrade, type: input } : upgrade) };
+        updateCard(updatedCard);
+    }
+
     const updateHealth = (input, index) => {
         const newCard = { ...card, hp: input };
         updateCard(newCard);
@@ -49,10 +55,24 @@ const CardBuilder = ({ card, updateCard }) => {
         updateCard(updatedCard);
     }
 
+    const addUpgrade = () => {
+        const updatedUpgrades = [...card.upgrades]
+        updatedUpgrades.push({ "type": null, })
+        const updatedCard = { ...card, upgrades: updatedUpgrades }
+        updateCard(updatedCard);
+    }
+
     const removeKeyword = (index) => {
         const updatedKeywords = [...card.keywords]
         updatedKeywords.splice(index, 1)
         const updatedCard = { ...card, keywords: updatedKeywords }
+        updateCard(updatedCard);
+    }
+
+    const removeUpgrade = (index) => {
+        const updatedUpgrades = [...card.upgrades]
+        updatedUpgrades.splice(index, 1)
+        const updatedCard = { ...card, upgrades: updatedUpgrades }
         updateCard(updatedCard);
     }
 
@@ -61,6 +81,7 @@ const CardBuilder = ({ card, updateCard }) => {
             <div className="row">
                 <label >Namn: </label>
                 <input id="card-title" type="text" className="form" value={card.title} onChange={(e) => updateCardTitle(e.target.value)} />
+                <ToggleSwitch value={card.unique} setValue={(state) => updateCard({ ...card, unique: state })} />
             </div>
 
             <div className="row">
@@ -97,7 +118,7 @@ const CardBuilder = ({ card, updateCard }) => {
                                 </select>
                                 <label>Beskrivning: </label>
                                 <input className="form description" type="text" value={keyword.description} onChange={(e) => updateKeywordDescription(e.target.value, index)} />
-                                <button className="form remove" onClick={() => removeKeyword(index)}>X</button>
+                                <button className="form remove" onClick={() => removeKeyword(index)}>-</button>
                             </div>
                         ))
                     }
@@ -144,6 +165,42 @@ const CardBuilder = ({ card, updateCard }) => {
                     <input type="number" className="form number" />
                     <label>Black: </label>
                     <input type="number" className="form number" />
+                </div>
+            </div>
+
+            <div className="row">
+                <label >Upgrades: </label>
+                <button id="add-keyword" className="form add" onClick={addUpgrade} >+</button>
+            </div>
+            <div className="row">
+                <div className="builder-upgrades">
+                    {
+                        card.upgrades.map((upgrade, index) => (
+                            <div className="builder-upgrades" key={index}>
+                                <select className="upgrade icon large black" type="number" onChange={(e) => updateUpgradeType(e.target.value, index)} >
+                                    <optgroup className="upgrade icon large black ">
+                                        <option selected={upgrade.type == null}></option>
+                                        <option value={"armament"} selected={upgrade.type == "armament"}>{"\u0042"}</option>
+                                        <option value={"command"} selected={upgrade.type == "command"}>{"\u0043"}</option>
+                                        <option value={"comms"} selected={upgrade.type == "comms"}>{"\u004f"}</option>
+                                        <option value={"crew"} selected={upgrade.type == "crew"}>{"\u0041"}</option>
+                                        <option value={"force"} selected={upgrade.type == "force"}>{"\u0046"}</option>
+                                        <option value={"xxxgear"} selected={upgrade.type == "gear"}>{"\u0047"}</option>
+                                        <option value={"generator"} selected={upgrade.type == "generator"}>{"\u0049"}</option>
+                                        <option value={"grenades"} selected={upgrade.type == "grenades"}>{"\u004E"}</option>
+                                        <option value={"hardpoint"} selected={upgrade.type == "hardpoint"}>{"\u0048"}</option>
+                                        <option value={"heavyweapon"} selected={upgrade.type == "heavyweapon"}>{"\u0057"}</option>
+                                        <option value={"ordnance"} selected={upgrade.type == "ordnance"}>{"\u004f"}</option>
+                                        <option value={"personnel"} selected={upgrade.type == "personnel"}>{"\u0055"}</option>
+                                        <option value={"pilot"} selected={upgrade.type == "pilot"}>{"\u0050"}</option>
+                                        <option value={"protocol"} selected={upgrade.type == "protocol"}>{"\u004f"}</option>
+                                        <option value={"training"} selected={upgrade.type == "training"}>{"\u004D"}</option>
+                                    </optgroup>
+                                </select>
+                                <button className="form remove" onClick={() => removeUpgrade(index)}>-</button>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>

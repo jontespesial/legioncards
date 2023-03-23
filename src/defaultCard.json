@@ -11,11 +11,13 @@
     "hp": 2,
     "courage": 1,
     "upgrades": [{
-        "icon": "A"
+        "type": "armament"
     }, {
-        "icon": "B"
+        "type": "command"
     }, {
-        "icon": "U"
+        "type": "comms"
+    }, {
+        "type": "training"
     }],
     "keywords" : [{
         "title": "Spotter",

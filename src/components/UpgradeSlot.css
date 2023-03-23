@@ -1,0 +1,59 @@
+.upgrade.armament::before {
+    content: "\0042";
+}
+
+.upgrade.command::before {
+    content: "\0043";
+}
+
+.upgrade.comms::before {
+    content: "\004f";
+}
+
+.upgrade.crew::before {
+    content: "\0041";
+}
+
+.upgrade.force::before {
+    content: "\0046";
+}
+
+.upgrade.gear::before {
+    content: "\0047";
+}
+
+.upgrade.generator::before {
+    content: "\0049";
+}
+
+.upgrade.grenades::before {
+    content: "\004E";
+}
+
+.upgrade.hardpoint::before {
+    content: "\0048";
+}
+
+.upgrade.heavyweapon::before {
+    content: "\0057";
+}
+
+.upgrade.ordnance::before {
+    content: "\004f";
+}
+
+.upgrade.personnel::before {
+    content: "\0055";
+}
+
+.upgrade.pilot::before {
+    content: "\0050";
+}
+
+.upgrade.protocol::before {
+    content: "\004f";
+}
+
+.upgrade.training::before {
+    content: "\004D";
+}
