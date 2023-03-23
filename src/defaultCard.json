@@ -38,5 +38,17 @@
         "title": "Sharpshooter",
         "level": 1,
         "description": "(While performing a ranged attack, reduce the defender's cover by 1.)"
-    }]
+    }],
+    "weapons":[
+        {
+            "title": "Test blaster",
+            "range": {
+                "from": 1,
+                "to": 3
+            },
+            "white": 2,
+            "red": 2,
+            "black": 1
+        }
+    ]
 }

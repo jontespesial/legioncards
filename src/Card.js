@@ -2,6 +2,7 @@ import React from "react"
 
 import "./Card.css"
 import UpgradeSlot from "./components/UpgradeSlot"
+import Weapon from "./components/Weapon"
 import "./Dice.css"
 import empire from "./resources/mall_empire.png"
 import movement from "./resources/movement.png"
@@ -10,7 +11,6 @@ import surgeDefence from "./resources/surge_defence.png"
 import UnitType from "./UnitType"
 
 const Card = ({ card }) => {
-
     return (
         <div className="card-unit">
             <p className={card.unique ? "title font-title unique" : "title font-title"}>{card.title}</p>
@@ -52,6 +52,11 @@ const Card = ({ card }) => {
                 }
 
             </div>
+
+                <div className="weapons">
+                    <Weapon weapon={card.weapons[0]} />
+                </div>
+
             <img src={empire} className="mall" />
         </div>
     )

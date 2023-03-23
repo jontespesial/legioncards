@@ -11,5 +11,17 @@
     "hp": null,
     "courage": null,
     "upgrades": [],
-    "keywords" : []
+    "keywords" : [],
+    "weapons":[
+        {
+            "title": "",
+            "range": {
+                "from": 0,
+                "to": 0
+            },
+            "white": 0,
+            "red": 0,
+            "black": 0
+        }
+    ]
 }
