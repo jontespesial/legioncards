@@ -69,7 +69,7 @@ const CardBuilder = ({ card, updateCard }) => {
                     <option selected={card.unitType == null}></option>
                     <option value={"commander"} selected={card.unitType == "commander"}>Commander</option>
                     <option value={"operative"} selected={card.unitType == "operative"}>Operative</option>
-                    <option value={"trooper"}  selected={card.unitType == "trooper"}>Trooper</option>
+                    <option value={"trooper"} selected={card.unitType == "trooper"}>Trooper</option>
                 </select>
                 <label>Count: </label>
                 <input type="number" min="1" max="9" className="form number" value={card.unitCount} onChange={(e) => updateCard({ ...card, unitCount: e.target.value })} />
@@ -88,12 +88,12 @@ const CardBuilder = ({ card, updateCard }) => {
                                 <label>Titel: </label>
                                 <input className="form title" type="text" value={keyword.title} onChange={(e) => updateKeywordTitle(e.target.value, index)} />
                                 <select type="number" onChange={(e) => updateKeywordLevel(e.target.value, index)} >
-                                    <option defaultChecked="true"></option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option selected={keyword.level == null}></option>
+                                    <option selected={keyword.level == 1}>1</option>
+                                    <option selected={keyword.level == 2}>2</option>
+                                    <option selected={keyword.level == 3}>3</option>
+                                    <option selected={keyword.level == 4}>4</option>
+                                    <option selected={keyword.level == 5}>5</option>
                                 </select>
                                 <label>Beskrivning: </label>
                                 <input className="form description" type="text" value={keyword.description} onChange={(e) => updateKeywordDescription(e.target.value, index)} />
@@ -107,6 +107,8 @@ const CardBuilder = ({ card, updateCard }) => {
             <div className="row">
                 <label>Health: </label>
                 <input type="number" min="1" max="9" className="form number" value={card.hp} onChange={(e) => updateHealth(e.target.value)} />
+                <label>Courage: </label>
+                <input type="number" min="1" max="9" className="form number" value={card.courage} onChange={(e) => updateCard({ ...card, courage: e.target.value })} />
             </div>
 
             <div className="row">

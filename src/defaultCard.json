@@ -23,17 +23,17 @@
         "description": "(Choose up to 2 friendly units at range 1. Each chosen unit gains an aim token.)"
     },
     {
-        "title": "Inspire 1",
+        "title": "Inspire",
         "level": 1,
         "description": "(After your Rally step, remove up to 1 suppression token from another friendly unit at range 1-2.)"
     },
     {
-        "title": "Precise 1",
+        "title": "Precise",
         "level": 1,
         "description": ""
     },
     {
-        "title": "Sharpshooter 1",
+        "title": "Sharpshooter",
         "level": 1,
         "description": "(While performing a ranged attack, reduce the defender's cover by 1.)"
     }]

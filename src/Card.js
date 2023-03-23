@@ -23,14 +23,14 @@ const Card = ({ card }) => {
             <div className="keywords">
                 {card.keywords.map((keyword, index) => (
                     <div className={"keyword" + (index == 0 ? " first" : "")} key={index}>
-                        <p className="keyword-title font-title">{keyword.title}</p>
+                        <p className="keyword-title font-title">{keyword.title} {keyword.level}</p>
                         <p className="keyword-description font-description">{keyword.description}</p>
                     </div>
                 ))}
             </div>
             <div className={"dice defence " + card.defenceType}></div>
-            {card.hp != null && <div className="icon small health"><p className="hpstats health-points">{card.hp}</p></div>}
-            {card.courage != null && <div className="icon small courage"><p className="hpstats courage-points">{card.courage}</p></div>}
+            {card.hp != null && <div className="icon small health"><p className="hpstats health-points font-title">{card.hp}</p></div>}
+            {card.courage != null && <div className="icon small courage"><p className="hpstats courage-points font-title">{card.courage}</p></div>}
             <div className="surges">
                 {
                     card.surgeAttack && <img className="surge attack" src={surgeAttack} />
