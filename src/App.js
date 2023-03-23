@@ -11,6 +11,7 @@ function App() {
 
   useEffect(()=> {
     console.log("CARD UPDATED")
+    console.log("dices - white:" + card.weapons[0].white + " red: " + card.weapons[0].red + " black: "+ card.weapons[0].black)
   }, [card])
 
   const updateCard = (newCard) => {

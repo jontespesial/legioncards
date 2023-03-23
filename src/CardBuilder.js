@@ -81,6 +81,7 @@ const CardBuilder = ({ card, updateCard }) => {
             <div className="row">
                 <label >Namn: </label>
                 <input id="card-title" type="text" className="form" value={card.title} onChange={(e) => updateCardTitle(e.target.value)} />
+                <label >Unique: </label>
                 <ToggleSwitch value={card.unique} setValue={(state) => updateCard({ ...card, unique: state })} />
             </div>
 
@@ -106,7 +107,7 @@ const CardBuilder = ({ card, updateCard }) => {
                     {
                         card.keywords.map((keyword, index) => (
                             <div className="builder-keyword" key={index}>
-                                <label>Titel: </label>
+                                <label className="small">Titel: </label>
                                 <input className="form title" type="text" value={keyword.title} onChange={(e) => updateKeywordTitle(e.target.value, index)} />
                                 <select type="number" onChange={(e) => updateKeywordLevel(e.target.value, index)} >
                                     <option selected={keyword.level == null}></option>
@@ -116,7 +117,7 @@ const CardBuilder = ({ card, updateCard }) => {
                                     <option selected={keyword.level == 4}>4</option>
                                     <option selected={keyword.level == 5}>5</option>
                                 </select>
-                                <label>Beskrivning: </label>
+                                <label className="small">Beskrivning: </label>
                                 <input className="form description" type="text" value={keyword.description} onChange={(e) => updateKeywordDescription(e.target.value, index)} />
                                 <button className="form remove" onClick={() => removeKeyword(index)}>-</button>
                             </div>
@@ -153,18 +154,26 @@ const CardBuilder = ({ card, updateCard }) => {
 
             <div className="row">
                 <label>Movementspeed: </label>
-                <input type="number" min="1" max="3" className="form number" value={card.speed} onChange={(e) => updateMovement(e.target.value)} />
+                <div className="slider-container">
+                <datalist id="test">
+                    <option value={1} label="1">t1</option>
+                    <option value={2} label="2">t2</option>
+                    <option value={3} label="3">t3</option>
+                    </datalist>
+                <input className="slider" list="test" type="range" min="1" max="3" value={card.speed} onChange={(e) => updateMovement(e.target.value)} />
+                </div>
+                
             </div>
 
             <div className="row">
                 <label>Attack dice: </label>
                 <div className="form attackdice">
                     <label>White: </label>
-                    <input type="number" className="form number" />
+                    <input type="number" className="form number" min="0" max="8" value={card.weapons[0].white} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === 0 ? { ...weapon, white: e.target.value } : weapon) }) } />
                     <label>Red: </label>
-                    <input type="number" className="form number" />
+                    <input type="number" className="form number" min="0" max="8" value={card.weapons[0].red} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === 0 ? { ...weapon, red: e.target.value } : weapon) }) }  />
                     <label>Black: </label>
-                    <input type="number" className="form number" />
+                    <input type="number" className="form number" min="0" max="8" value={card.weapons[0].black} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === 0 ? { ...weapon, black: e.target.value } : weapon) }) }  />
                 </div>
             </div>
 

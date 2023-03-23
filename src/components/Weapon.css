@@ -1,0 +1,24 @@
+.weapon {
+    position: absolute;
+    max-height: 50px;
+    bottom: 30px;
+    /*left: 220px;*/
+    left: 238px;
+    display: flex;
+    flex-direction: row;
+}
+
+.w2{
+
+}
+
+.weapon-dice {
+    height: 16px;
+    margin-left: -6px;
+}
+.weapon-dice.up {
+    margin-top: -9px;
+}
+.weapon-dice.down {
+    margin-bottom: -5px;
+}
