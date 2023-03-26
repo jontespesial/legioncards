@@ -15,13 +15,17 @@ import weaponsbg3 from "./resources/imgs/weapons3.png"
 import defaultUnitImage from "./resources/imgs/unitImages/unit_image_mall_318x250.png"
 import iden from "./resources/imgs/unitImages/iden.png"
 import UnitType from "./UnitType"
+import CardFaction from "./components/CardFaction"
 
 const Card = ({ card, empty }) => {
     return (
         <div className="card-unit">
             {/* --- Unit image ---*/}
             <img className="unitimage" src={iden} alt={defaultUnitImage} />
+            {/* --- Card image ---*/}
             <img src={(empty ? mall : empire)} className="mall" />
+            {/* --- Card-type image ---*/}
+            <CardFaction faction={card.faction} />
             {/* --- Unit name, type and count ---*/}
             <p className={card.unique ? "title font-title unique" : "title font-title"}>{card.title}</p>
             <UnitType type={card.unitType} />
