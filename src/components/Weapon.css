@@ -8,11 +8,21 @@
     height: 100%;
     width: 150px;
 
+    z-index: 10;
+
     /*background-color: rgb(255, 14, 255, 0.5); */
+}
+
+.w1 {
+    width: 100%;
 }
 
 .w2 {
     width: 50%;
+}
+
+.w3 {
+    width: 33%;
 }
 
 .weapon .textarea {
@@ -81,10 +91,6 @@
     margin-bottom: 9px;
 }
 
-.w2{
-
-}
-
 .weapon-dice {
     height: 16px;
     margin-left: -6px;
@@ -94,4 +100,12 @@
 }
 .weapon-dice.down {
     margin-bottom: -9px;
+}
+
+.weaponrange-spacetoright-big {
+    margin-right: 32px;
+}
+
+.weaponrange-spacetoright-small {
+    margin-right: 12px;
 }

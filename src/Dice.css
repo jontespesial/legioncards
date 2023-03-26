@@ -18,38 +18,32 @@
 /* --- DEFENCE --- */
 
 .dice.defence {
-    top: 90px;
-    right: 48px;
+    top: 92px;
+    right: 50px;
 }
 
 .dice.defence.red::after {
     content: "\0045";
     color: rgb(167, 14, 14);
+    font-weight: normal;
 }
 
 .dice.defence.red::before {
     content: "\0044";
     position: absolute;
     color: white;
+    font-weight: bold;
 }
 
 .dice.defence.white::after {
     content: "\0045";
     color: white;
+    font-weight: normal;
 }
 
 .dice.defence.white::before {
     content: "\0044";
     position: absolute;
     color: rgb(167, 14, 14);
+    font-weight: bold;
 }
-
-/* --- ATTACK --- */
-.dice.attackpool {
-    
-}
-
-.dice.attack {
-    content: "\0045";
-}
-

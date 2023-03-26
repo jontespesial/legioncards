@@ -1,8 +1,13 @@
 .card-unit {
     position: relative;
+    /*
     height: 62mm;
     width: 88mm;
-    border: 2px solid rgb(56, 225, 255);
+    */
+    height: 63mm;
+    width: 92mm;
+    /*border: 2px solid rgb(56, 225, 255);*/
+    box-sizing: border-box;
     margin: 5px;
 }
 
@@ -36,14 +41,6 @@ text, p {
 
 .black {
     color: black;
-    /*
-    border-radius: 50%;
-    background-color: white;
-    border-radius: 50%;
-    outline: 5px solid black;
-    outline-offset: -4px;
-    box-sizing: border-box;
-    */
 }
 
 p.title {
@@ -51,7 +48,7 @@ p.title {
     position: absolute;
     text-align: center;
     font-size: 14px;
-    top: 2px;
+    top: 5px;
     left: 70px;
 }
 
@@ -63,12 +60,12 @@ p.title.unique::before {
 .unittype {
     position: absolute;
     top: 1px;
-    right: 78.5px;
+    right: 82px;
 }
 
 p.unitcount {
     position: absolute;
-    right: 85.5px;
+    right: 89.5px;
     top: 20px;
     font-size: 10px;
     font-weight: 100;
@@ -78,8 +75,8 @@ p.unitcount {
 /* --- UPGRADES --- */
 .upgrades {
     position: absolute;
-    top: 50px;
-    left: 0px;
+    top: 46px;
+    left: 1px;
     max-width: 200px;
     display: flex;
     flex-direction: column;
@@ -92,13 +89,13 @@ p.unitcount {
 /* --- Stats --- */
 p.hpstats {
     font-size: 20px;
-    right: -12px;
+    right: -15px;
     top: 0px;
 }
 
 .health, .health-points {
     position: absolute;
-    right: 23px;
+    right: 22px;
     top: 76px;
     color: rgb(0, 185, 0);
 }
@@ -109,14 +106,14 @@ p.hpstats {
 
 .courage, .courage-points, .damage, .damage-points {
     position: absolute;
-    right: 23px;
+    right: 22px;
     top: 98px;
     color: rgb(255, 208, 22);
 }
 
 .damage, .damage-points {
     position: absolute;
-    right: 23px;
+    right: 22px;
     top: 98px;
     color: rgb(243, 146, 29);
 }
@@ -129,17 +126,6 @@ p.hpstats {
 }
 
 /* --- SURGES --- */
-.surges {
-    /*
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    max-height: 40px;
-    right: 1px;
-    top: 126px;
-    */
-}
-
 .surge {
     position: absolute;
     height: 15px;
@@ -147,12 +133,12 @@ p.hpstats {
 }
 
 .surge.attack {
-    top:126px;
-    right: 1px;
+    top:130px;
+    right: 0px;
 }
 .surge.defence {
-    top:141px;
-    right: 1px;
+    top:144px;
+    right: 0px;
 }
 
 /* --- KEYWORDS --- */
@@ -186,8 +172,8 @@ p.hpstats {
     position: absolute;
     display: flex;
     flex-direction: row;
-    bottom: 65px;
-    left: 277px;
+    bottom: 65.6px;
+    left: 293px;
 }
 
 .speed {
@@ -202,10 +188,23 @@ p.hpstats {
     flex-direction: row;
 
     height: 64px;
-    width: 310px;
+    width: 322px;
 
     bottom: 0px;
-    left: 23px;
+    left: 26px;
+
+    /*background-color: rgb(8, 0, 255, 0.5); */
+}
+
+.weaponsarea-image {
+    position: absolute;
+
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    bottom: 0px;
+    left: 0px;
 
     /*background-color: rgb(8, 0, 255, 0.5); */
 }

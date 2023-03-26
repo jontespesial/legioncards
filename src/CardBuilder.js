@@ -63,7 +63,7 @@ const CardBuilder = ({ card, updateCard }) => {
     }
 
     const addWeapon = () => {
-        if (card.weapons.length < 2) {
+        if (card.weapons.length < 3) {
             const updated = [...card.weapons]
             updated.push({ "title": "", "range": { "from": null, "to": null }, "white": 0, "red": 0, "black": 0 })
             const updatedCard = { ...card, weapons: updated }

@@ -2,6 +2,10 @@
   --sw-blue-light: rgb(75, 103, 197);
 }
 
+body {
+  margin: 0px;
+}
+
 /* Fira Sans Regular */
 @font-face {
   font-family: "SWLEGION";

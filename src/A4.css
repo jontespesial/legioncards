@@ -1,0 +1,66 @@
+@page {
+    margin: 0cm;
+    padding: 0cm;
+}
+
+@media print {
+    /*
+    body {
+        transform: scale(1.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @page :first {
+
+    }
+    */
+  }
+
+.a4 {
+    position: relative;
+
+    margin: 0px;
+    padding: 0px;
+
+    height: 297mm;
+    width: 210mm;
+
+    border: 2px solid black;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.a4-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.card-unit-demo {
+    /*
+    height: 62mm;
+    width: 88mm;
+    */
+    height: 63mm;
+    width: 92mm;
+    border: 2px solid rgb(255, 0, 0);
+    box-sizing: border-box;
+}
+
+.card-upgrade-demo {
+    /*
+    height: 63mm;
+    width: 41mm;
+    */
+    height: 66mm;
+    width: 43mm;
+    border: 2px solid rgb(255, 0, 204);
+    box-sizing: border-box;
+}

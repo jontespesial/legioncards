@@ -11,7 +11,7 @@ const createDice = (color, index) => {
     return { "color": color, "pos": position }
 }
 
-const Weapon = ({ weapon }) => {
+const Weapon = ({ weapon, numberOfWeapons }) => {
 
     const [dicesState, setDices] = useState([])
 
@@ -48,7 +48,7 @@ const Weapon = ({ weapon }) => {
     }
 
     return (
-        <div className="weapon w2">
+        <div className={"weapon w" + numberOfWeapons}>
             <div className="textarea">
                 <p className="font-title white">{weapon.title}</p>
             </div>
@@ -60,10 +60,10 @@ const Weapon = ({ weapon }) => {
                                 <>
                                     <WeaponRange range={weapon.range.from} />
                                     <img className="weaponrangespacer" src={spacer} alt="spacer" />
-                                    <WeaponRange range={weapon.range.to} />
+                                    <WeaponRange range={weapon.range.to} spacer={(numberOfWeapons == 3) ? true : false} />
                                 </>
                             )
-                            : (weapon.range.from != null) && <WeaponRange range={weapon.range.from} />
+                            : (weapon.range.from != null) && <WeaponRange range={weapon.range.from} spacer={(numberOfWeapons == 3) ? true : false} />
                     }
                 </div>
                 <div className="dicearea">

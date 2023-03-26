@@ -5,6 +5,7 @@ import CardBuilder from './CardBuilder';
 import defaultCard from "./defaultCard.json"
 import darthvader from "./resources/defaulcards/darthvader.json"
 import emptyCard from "./emptyCard.json"
+import A4 from './A4';
 
 function App() {
 
@@ -22,7 +23,15 @@ function App() {
     setCard(newCard)
   }
 
+/*
   return (
+    <div className="App">
+      <A4 />
+    </div>
+  )
+*/
+
+return (
     <div className="App">
       <div className='container'>
       <Card card={card} empty={empty} />
@@ -32,6 +41,8 @@ function App() {
       </div>
     </div>
   );
+
+  
 }
 
 export default App;

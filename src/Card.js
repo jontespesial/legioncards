@@ -9,6 +9,9 @@ import mall from "./resources/mall.png"
 import movement from "./resources/movement.png"
 import surgeAttack from "./resources/surge_attack.png"
 import surgeDefence from "./resources/surge_defence.png"
+import weaponsbg1 from "./resources/imgs/weapons1.png"
+import weaponsbg2 from "./resources/imgs/weapons2.png"
+import weaponsbg3 from "./resources/imgs/weapons3.png"
 import UnitType from "./UnitType"
 
 const Card = ({ card, empty }) => {
@@ -58,9 +61,12 @@ const Card = ({ card, empty }) => {
             <div className="weaponsarea">
                 {
                     card.weapons.map((weapon, index) => (
-                        <Weapon key={index} weapon={weapon} />
+                        <Weapon key={index} weapon={weapon} numberOfWeapons={card.weapons.length} />
                     ))
                 }
+                {(card.weapons.length == 1) && <img className="weaponsarea-image" src={weaponsbg1} alt="WeaponBackground_1"/>}
+                {(card.weapons.length == 2) && <img className="weaponsarea-image" src={weaponsbg2} alt="WeaponBackground_2" />}
+                {(card.weapons.length == 3) && <img className="weaponsarea-image" src={weaponsbg3} alt="WeaponBackground_3" />}
             </div>
 
 
