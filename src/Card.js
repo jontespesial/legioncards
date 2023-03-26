@@ -12,14 +12,22 @@ import surgeDefence from "./resources/surge_defence.png"
 import weaponsbg1 from "./resources/imgs/weapons1.png"
 import weaponsbg2 from "./resources/imgs/weapons2.png"
 import weaponsbg3 from "./resources/imgs/weapons3.png"
+import defaultUnitImage from "./resources/imgs/unitImages/unit_image_mall_318x250.png"
+import iden from "./resources/imgs/unitImages/iden.png"
 import UnitType from "./UnitType"
 
 const Card = ({ card, empty }) => {
     return (
         <div className="card-unit">
+            {/* --- Unit image ---*/}
+            <img className="unitimage" src={iden} alt={defaultUnitImage} />
+            <img src={(empty ? mall : empire)} className="mall" />
+            {/* --- Unit name, type and count ---*/}
             <p className={card.unique ? "title font-title unique" : "title font-title"}>{card.title}</p>
             <UnitType type={card.unitType} />
             <p className="unitcount">{card.unitCount}</p>
+            
+            {/* --- Upgrades ---*/}
             <div className="upgrades">
                 {card.upgrades.map((upgrade, index) => (
                     <UpgradeSlot type={upgrade.type} />
@@ -67,10 +75,7 @@ const Card = ({ card, empty }) => {
                 {(card.weapons.length == 1) && <img className="weaponsarea-image" src={weaponsbg1} alt="WeaponBackground_1"/>}
                 {(card.weapons.length == 2) && <img className="weaponsarea-image" src={weaponsbg2} alt="WeaponBackground_2" />}
                 {(card.weapons.length == 3) && <img className="weaponsarea-image" src={weaponsbg3} alt="WeaponBackground_3" />}
-            </div>
-
-
-            <img src={(empty ? mall : empire)} className="mall" />
+            </div>    
         </div>
     )
 }

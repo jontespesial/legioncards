@@ -23,14 +23,14 @@ function App() {
     setCard(newCard)
   }
 
-/*
+
   return (
     <div className="App">
       <A4 />
     </div>
   )
-*/
 
+/*
 return (
     <div className="App">
       <div className='container'>
@@ -42,7 +42,7 @@ return (
     </div>
   );
 
-  
+  */
 }
 
 export default App;

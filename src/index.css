@@ -39,20 +39,12 @@ body {
 @media screen {
 
   .card-unit {
-      background-color: red;
+      background-color: rgb(53, 53, 53);
   }
 }
 
 @media print {
   .noprint {
     display: none !important;
-  }
-
-  .card-unit {
-      background-color: green;
-  }
-
-  h4 {
-      display: none;
   }
 }

@@ -1,4 +1,8 @@
 import "./A4.css"
+import Card from "./Card"
+import emptyCard from "./emptyCard.json"
+import darthvader from "./resources/defaulcards/darthvader.json"
+
 /*
     "rows" : [
         {
@@ -46,8 +50,8 @@ const A4 = ({ rows }) => {
                 <div className="card-upgrade-demo" />
             </div>
             <div className="a4-row row-3">
-                <div className="card-unit-demo" />
-                <div className="card-unit-demo" />
+                <Card card={darthvader} empty={true} />
+                <Card card={emptyCard} empty={true} />
             </div>
         </div>
     )

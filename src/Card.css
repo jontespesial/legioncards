@@ -12,6 +12,7 @@
 }
 
 img.mall {
+    position: absolute;
     width: 100%;
     max-height: 100%;
     object-fit: cover;
@@ -60,7 +61,7 @@ p.title.unique::before {
 .unittype {
     position: absolute;
     top: 1px;
-    right: 82px;
+    right: 82.5px;
 }
 
 p.unitcount {
@@ -70,6 +71,16 @@ p.unitcount {
     font-size: 10px;
     font-weight: 100;
     color:white;
+}
+
+/* --- Unit image --- */
+.unitimage {
+    position: absolute;
+    height: 64px;
+    width: 81px;
+    object-fit: cover;
+    top: 0;
+    right: 0;
 }
 
 /* --- UPGRADES --- */
@@ -145,7 +156,7 @@ p.hpstats {
 .keywords {
     position: absolute;
     top: 30px;
-    left: 32px;
+    left: 33px;
     max-width: 225px;
 }
 .keyword.first {
