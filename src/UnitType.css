@@ -3,19 +3,30 @@
 }
 
 .operative::before {
-    margin-right: -1.5px;
+    margin-right: 0.1px;
+    font-size: 13px;
     content: "\0037";
 }
 
 .trooper::before {
-    margin-right: 2.5px;
+    font-size: 13px;
+    margin-right: 4px;
     content: "\0036";
 }
 
-.test::before {
+.special::before {
+    margin-right: 0.1px;
+    font-size: 13px;
+    content: "\0037";
+}
+
+.support::before {
+    margin-right: 4.4px;
+    font-size: 15px;
     content: "\0038";
 }
 
-.tester::before {
+.heavy::before {
+    font-size: 15px;
     content: "\0039";
 }

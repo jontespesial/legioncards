@@ -1,11 +1,84 @@
+
 .weapon {
-    position: absolute;
-    max-height: 50px;
-    bottom: 30px;
-    /*left: 220px;*/
-    left: 238px;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    width: 150px;
+
+    /*background-color: rgb(255, 14, 255, 0.5); */
+}
+
+.w2 {
+    width: 50%;
+}
+
+.weapon .textarea {
+    position: relative;
+    width: 100%;
+    height: 12px;
+    
+    padding: 1px 4px;
+    font-size: 9px;
+    box-sizing: border-box;
+    /*background-color: aqua; */
+}
+
+.weapon .contentarea {
+    width: 100%;
+    height: 26px;
+    display: flex;
+    /*background-color: rgb(185, 189, 255, 0.4);*/
+}
+
+.weapon .dicearea {
+    position: relative;
+    height: 100%;
+    width: 95px;
+    
+    padding-left: 4px;
+    box-sizing: border-box;
+    /*background-color: rgb(225, 255, 27, 0.5);*/
+}
+
+.weapon .keywordarea {
+    font-size: 11px;
+    line-height: 28px;
+    height: 26px;
+    text-align: center;
+    /*background-color: rgba(29, 255, 100, 0.5);*/
+}
+
+/* Ranges */
+.weapon .rangearea {
+    position: relative;
+    height: 100%;
+    width: 50px;
+
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+    margin-top: 6.5px;
+    margin-left: 4px;
+
+    font-family: SWLEGION;
+    font-size: 16px;
+    line-height: 17px;
+    color: var(--sw-blue-light);
+    /*background-color: rgb(255, 71, 252, 0.5);*/
+}
+
+.weaponrange {
+    height: 17px;
+}
+
+.weaponrangespacer {
+    width: 10px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 9px;
 }
 
 .w2{
@@ -17,8 +90,8 @@
     margin-left: -6px;
 }
 .weapon-dice.up {
-    margin-top: -9px;
+    margin-top: 2px;
 }
 .weapon-dice.down {
-    margin-bottom: -5px;
+    margin-bottom: -9px;
 }

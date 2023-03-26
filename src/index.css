@@ -1,3 +1,7 @@
+:root {
+  --sw-blue-light: rgb(75, 103, 197);
+}
+
 /* Fira Sans Regular */
 @font-face {
   font-family: "SWLEGION";
@@ -25,4 +29,26 @@
 
 .font-weapon {
   font-family: weapons;
+}
+
+
+@media screen {
+
+  .card-unit {
+      background-color: red;
+  }
+}
+
+@media print {
+  .noprint {
+    display: none !important;
+  }
+
+  .card-unit {
+      background-color: green;
+  }
+
+  h4 {
+      display: none;
+  }
 }

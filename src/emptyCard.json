@@ -1,27 +1,20 @@
 {
     "title": null,
-    "unique": null,
+    "unique": false,
     "faction": null,
     "unitType": null,
-    "unitCount": null,
+    "unitCount": 1,
     "defenceType": null,
     "surgeAttack": false,
     "surgeDefence": false,
-    "speed": null,
-    "hp": null,
-    "courage": null,
+    "speed": 1,
+    "hp": 1,
+    "courage": {
+        "type": "courage",
+        "amount": 0
+    },
     "upgrades": [],
     "keywords" : [],
     "weapons":[
-        {
-            "title": "",
-            "range": {
-                "from": 0,
-                "to": 0
-            },
-            "white": 0,
-            "red": 0,
-            "black": 0
-        }
     ]
 }

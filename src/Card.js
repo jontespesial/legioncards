@@ -5,12 +5,13 @@ import UpgradeSlot from "./components/UpgradeSlot"
 import Weapon from "./components/Weapon"
 import "./Dice.css"
 import empire from "./resources/mall_empire.png"
+import mall from "./resources/mall.png"
 import movement from "./resources/movement.png"
 import surgeAttack from "./resources/surge_attack.png"
 import surgeDefence from "./resources/surge_defence.png"
 import UnitType from "./UnitType"
 
-const Card = ({ card }) => {
+const Card = ({ card, empty }) => {
     return (
         <div className="card-unit">
             <p className={card.unique ? "title font-title unique" : "title font-title"}>{card.title}</p>
@@ -18,7 +19,7 @@ const Card = ({ card }) => {
             <p className="unitcount">{card.unitCount}</p>
             <div className="upgrades">
                 {card.upgrades.map((upgrade, index) => (
-                    <UpgradeSlot type={upgrade.type}/>
+                    <UpgradeSlot type={upgrade.type} />
                 ))}
             </div>
             <div className="keywords">
@@ -31,7 +32,7 @@ const Card = ({ card }) => {
             </div>
             <div className={"dice defence " + card.defenceType}></div>
             {card.hp != null && <div className="icon small health"><p className="hpstats health-points font-title">{card.hp}</p></div>}
-            {card.courage != null && <div className="icon small courage"><p className="hpstats courage-points font-title">{card.courage}</p></div>}
+            {(card.courage.amount != null && card.courage.amount > 0) && <div className={"icon small " + card.courage.type}><p className={"hpstats font-title " + card.courage.type + "-points"}>{card.courage.amount}</p></div>}
             <div className="surges">
                 {
                     card.surgeAttack && <img className="surge attack" src={surgeAttack} />
@@ -40,7 +41,7 @@ const Card = ({ card }) => {
                     card.surgeDefence && <img className="surge defence" src={surgeDefence} />
                 }
             </div>
-            <div className="movementspeed">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+            <div className="movementspeed">
                 {
                     card.speed > 0 && <img className="speed 1" src={movement} />
                 }
@@ -53,11 +54,17 @@ const Card = ({ card }) => {
 
             </div>
 
-                <div className="weapons">
-                    <Weapon weapon={card.weapons[0]} />
-                </div>
 
-            <img src={empire} className="mall" />
+            <div className="weaponsarea">
+                {
+                    card.weapons.map((weapon, index) => (
+                        <Weapon key={index} weapon={weapon} />
+                    ))
+                }
+            </div>
+
+
+            <img src={(empty ? mall : empire)} className="mall" />
         </div>
     )
 }

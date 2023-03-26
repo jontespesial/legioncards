@@ -1,0 +1,102 @@
+{
+    "title": "Darth Vader",
+    "version": "THE EMPEROR'S APPRENTICE",
+    "unique": true,
+    "faction": "empire",
+    "unitType": "operative",
+    "unitCount": 1,
+    "defenceType": "red",
+    "surgeAttack": false,
+    "surgeDefence": false,
+    "speed": 1,
+    "hp": 6,
+    "courage": {
+        "type": "courage",
+        "amount": 3
+    },
+    "upgrades": [
+        {
+            "type": "force"
+        },
+        {
+            "type": "force"
+        },
+        {
+            "type": "training"
+        }
+    ],
+    "keywords": [
+        {
+            "title": "Deflect",
+            "level": null,
+            "description": ""
+        },
+        {
+            "title": "Immunce: Pierce",
+            "level": null,
+            "description": ""
+        },
+        {
+            "title": "Jedi Hunter",
+            "level": null,
+            "description": "While attackin a unit that has a upgrade icon, you gain \"Surge\""
+        },
+        {
+            "title": "Master of the force",
+            "level": 1,
+            "description": "At the end of your activation, you may ready 1 of your force upgrade cards"
+        },
+        {
+            "title": "Relentless",
+            "level": null,
+            "description": ""
+        },
+        {
+            "title": "Spur",
+            "level": null,
+            "description": "While performing a move, you may gain 1 suppression token to increase your maximum speed by 1"
+        }
+    ],
+    "weapons": [
+        {
+            "title": "Vader's Lightsaber",
+            "range": {
+                "from": 0,
+                "to": 0
+            },
+            "white": 0,
+            "red": 5,
+            "black": 0,
+            "keywords": [
+                {
+                    "title": "Impact",
+                    "level": "3"
+                },
+                {
+                    "title": "Pierce",
+                    "level": "3"
+                }
+            ]
+        },
+        {
+            "title": "Force Throw",
+            "range": {
+                "from": 1,
+                "to": 2
+            },
+            "white": 0,
+            "red": 0,
+            "black": 2,
+            "keywords": [
+                {
+                    "title": "Blast",
+                    "level": null
+                },
+                {
+                    "title": "Scatter",
+                    "level": null
+                }
+            ]
+        }
+    ]
+}

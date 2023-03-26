@@ -68,7 +68,7 @@ p.title.unique::before {
 
 p.unitcount {
     position: absolute;
-    right: 87px;
+    right: 85.5px;
     top: 20px;
     font-size: 10px;
     font-weight: 100;
@@ -107,15 +107,25 @@ p.hpstats {
     content: "\004c";
 }
 
-.courage, .courage-points {
+.courage, .courage-points, .damage, .damage-points {
     position: absolute;
     right: 23px;
     top: 98px;
     color: rgb(255, 208, 22);
 }
 
+.damage, .damage-points {
+    position: absolute;
+    right: 23px;
+    top: 98px;
+    color: rgb(243, 146, 29);
+}
+
 .courage::before {
     content: "\006d";
+}
+.damage::before {
+    content: "\0056";
 }
 
 /* --- SURGES --- */
@@ -184,18 +194,18 @@ p.hpstats {
     height: 6.4px;
 }
 
-@media screen {
-    .card-unit {
-        background-color: red;
-    }
-}
+/* --- WEAPONS --- */
+.weaponsarea {
+    position: absolute;
 
-@media print {
-    .card-unit {
-        background-color: green;
-    }
+    display: flex;
+    flex-direction: row;
 
-    h4 {
-        display: none;
-    }
+    height: 64px;
+    width: 310px;
+
+    bottom: 0px;
+    left: 23px;
+
+    /*background-color: rgb(8, 0, 255, 0.5); */
 }

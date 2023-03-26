@@ -41,6 +41,16 @@
     }],
     "weapons":[
         {
+            "title": "Knife",
+            "range": {
+                "from": 0,
+                "to": 0
+            },
+            "white": 0,
+            "red": 3,
+            "black": 2
+        },
+        {
             "title": "Test blaster",
             "range": {
                 "from": 1,
