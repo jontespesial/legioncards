@@ -10,6 +10,19 @@
     box-sizing: border-box;
 }
 
+.card-upgrade {
+    position: relative;
+    /*
+    height: 63mm;
+    width: 41mm;
+    */
+    height: 66mm;
+    width: 43mm;
+    /*border: 2px solid rgb(255, 29, 29);*/
+    box-sizing: border-box;
+}
+
+
 img.mall {
     position: absolute;
     width: 100%;
