@@ -51,9 +51,9 @@ const A4 = ({ }) => {
 
     return (
         <div className="a4">
-            <A4Row cards={[null, null]} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 0, cardIndex)} />
-            <A4Row cards={[null, null, null]} type={"upgrade"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 1, cardIndex)} />
-            <A4Row cards={[darthvader, emptyCard]} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 2, cardIndex)} />
+            <A4Row cards={rows.row1.cards} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 0, cardIndex)} />
+            <A4Row cards={rows.row2.cards} type={"upgrade"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 1, cardIndex)} />
+            <A4Row cards={rows.row3.cards} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 2, cardIndex)} />
         </div>
     )
 }

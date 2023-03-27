@@ -37,9 +37,16 @@ export const CreateRow = (type) => {
 }
 
 export const CreateA4 = () => {
+    /* Detta ska det vara när allt är implementerat
     return {
             "row1": null,
             "row2": null,
             "row3": null,
+    }
+    */
+    return {
+            "row1": CreateRow("unit"),
+            "row2": CreateRow("upgrade"),
+            "row3": CreateRow("unit"),
     }
 }

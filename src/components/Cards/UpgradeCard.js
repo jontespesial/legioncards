@@ -1,4 +1,4 @@
-const UpgradeCard = ({ card }) => {
+const UpgradeCard = ({ card, addNewCard }) => {
     
     if(card) {
         <div className="card-upgrade-placeholder" >

@@ -9,16 +9,16 @@ const A4Row = ({ type, cards, addNewCard }) => {
             return (
                 <div className="a4-row">
                     <UnitCard card={cards[0]} addNewCard={(newCard)=>addNewCard(newCard, 0)} />
-                    <UnitCard card={cards[1]} />
+                    <UnitCard card={cards[1]} addNewCard={(newCard)=>addNewCard(newCard, 1)} />
                 </div>
             )
         }
         case "upgrade": {
             return (
                 <div className="a4-row">
-                    <UpgradeCard card={cards[0]} />
-                    <UpgradeCard card={cards[1]} />
-                    <UpgradeCard card={cards[2]} />
+                    <UpgradeCard card={cards[0]} addNewCard={(newCard)=>addNewCard(newCard, 0)} />
+                    <UpgradeCard card={cards[1]} addNewCard={(newCard)=>addNewCard(newCard, 1)} />
+                    <UpgradeCard card={cards[2]} addNewCard={(newCard)=>addNewCard(newCard, 2)} />
                 </div>
             )
         }
