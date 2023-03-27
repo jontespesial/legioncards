@@ -1,58 +1,59 @@
+import { useEffect, useState } from "react"
 import "./A4.css"
 import Card from "./Card"
+import A4Row from "./components/A4Row"
+import Row from "./components/A4Row"
 import emptyCard from "./emptyCard.json"
 import darthvader from "./resources/defaulcards/darthvader.json"
+import { CreateA4, CreateRow } from "./components/Cards/CardFactory"
 
-/*
-    "rows" : [
-        {
-            "type": units
-            "cards": [
-                {
-                    cardobjects
-                },
-                {
-                    cardobjects
-                }
-            ]
-        },
-        {
-            "type": upgrades
-            "cards": [
-                {
-                    cardobjects
-                },
-                {
-                    cardobjects
-                },
-                {
-                    cardobjects
-                }
-            ]
-        },
-        {
-            "type": units
+const A4 = ({ }) => {
+
+    const [card, setCard] = useState(darthvader)
+    const [rows, setRows] = useState(CreateA4())
+
+    useEffect(() => {
+        console.log("CARD UPDATED")
+    }, [card])
+
+    const updateCard = (newCard, rowIndex, cardIndex) => {
+        const updateRow = (rowIndex) => (prevState) => {
+            const newRow = { ...prevState[`row${rowIndex}`], cards: [...prevState[`row${rowIndex}`].cards] };
+            newRow.cards[cardIndex] = newCard;
+            return { ...prevState, [`row${rowIndex}`]: newRow };
         }
-    ]
-*/
 
-const A4 = ({ rows }) => {
+        setRows(prevState => {
+            switch (rowIndex) {
+                case 0: return updateRow(1)(prevState);
+                case 1: return updateRow(2)(prevState);
+                case 2: return updateRow(3)(prevState);
+                default: return prevState;
+            }
+        });
+    }
+
+    const setRowType = (rowIndex, type) => {
+        const updateRow = (rowIndex) => (prevState) => {
+            const newRow = CreateRow(type)
+            return { ...prevState, [`row${rowIndex}`]: newRow };
+        }
+
+        setRows(prevState => {
+            switch (rowIndex) {
+                case 0: return updateRow(1)(prevState);
+                case 1: return updateRow(2)(prevState);
+                case 2: return updateRow(3)(prevState);
+                default: return prevState;
+            }
+        });
+    }
 
     return (
         <div className="a4">
-            <div className="a4-row row-1">
-                <div className="card-unit-demo" />
-                <div className="card-unit-demo" />
-            </div>
-            <div className="a4-row row-2">
-                <div className="card-upgrade-demo" />
-                <div className="card-upgrade-demo" />
-                <div className="card-upgrade-demo" />
-            </div>
-            <div className="a4-row row-3">
-                <Card card={darthvader} empty={true} />
-                <Card card={emptyCard} empty={true} />
-            </div>
+            <A4Row cards={[null, null]} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 0, cardIndex)} />
+            <A4Row cards={[null, null, null]} type={"upgrade"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 1, cardIndex)} />
+            <A4Row cards={[darthvader, emptyCard]} type={"unit"} addNewCard={(newCard, cardIndex)=>updateCard(newCard, 2, cardIndex)} />
         </div>
     )
 }

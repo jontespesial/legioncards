@@ -17,9 +17,6 @@ function App() {
   }, [card])
 
   const updateCard = (newCard) => {
-    console.log("TRIGGERING CARDUPDATE")
-    console.log("NYA: " + newCard.title)
-    console.log("GAMMLA: " + card.title)
     setCard(newCard)
   }
 
