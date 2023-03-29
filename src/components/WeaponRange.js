@@ -10,37 +10,37 @@ const WeaponRange = ({ range, spacer }) => {
     switch (parseInt(range)) {
         case 1:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-small"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-small" : ""}>
                     <img className="weaponrange" src={range1} alt="range_1" />
                 </div>
             )
         case 2:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-small"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-small" : ""}>
                     <img className="weaponrange" src={range2} alt="range_2" />
                 </div>
             )
         case 3:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-small"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-small" : ""}>
                     <img className="weaponrange" src={range3} alt="range_3" />
                 </div>
             )
         case 4:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-small"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-small" : ""}>
                     <img className="weaponrange" src={range4} alt="range_4" />
                 </div>
             )
         case 5:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-small"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-small" : ""}>
                     <img className="weaponrange" src={range5} alt="range_5" />
                 </div>
             )
         default:
             return (
-                <div className={(spacer) && "weaponrange-spacetoright-big"}>
+                <div className={(spacer) ? "weaponrange-spacetoright-big" : ""}>
                     <img className="weaponrange" src={range0} alt="range_0" />
                 </div>
             )

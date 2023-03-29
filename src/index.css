@@ -38,9 +38,7 @@ body {
 
 @media screen {
 
-  .card-unit {
-      background-color: rgb(53, 53, 53);
-  }
+  
 }
 
 @media print {

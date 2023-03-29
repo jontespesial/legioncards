@@ -47,21 +47,3 @@
     justify-content: space-around;
     box-sizing: border-box;
 }
-
-.card-unit.placeholder {
-    border: 2px solid rgb(255, 0, 0);
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-upgrade.placeholder {
-    border: 2px solid rgb(255, 0, 204);
-    box-sizing: border-box;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}

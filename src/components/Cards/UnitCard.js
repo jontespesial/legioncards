@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 
 import "../../Card.css"
 import UpgradeSlot from "../UpgradeSlot"
@@ -16,15 +16,47 @@ import defaultUnitImage from "../../resources/imgs/unitImages/unit_image_mall_31
 import iden from "../../resources/imgs/unitImages/iden.png"
 import UnitType from "../../UnitType"
 import CardFaction from "../CardFaction"
-import { CreateCard } from "./CardFactory"
+import NewUnitCard from "./NewUnitCard"
+import { HandleDrag, HandleDropFile } from "../FileHandler"
 
-const UnitCard = ({ card, addNewCard }) => {
+const UnitCard = ({ card, updateCard }) => {
+
+    // drag state
+    const [unitImageDragActive, setUnitImageDragActive] = useState(false);
+
+    const addUnitImage = (file) => {
+        console.log("File: ", file)
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageBase64 = e.target.result;
+            updateCard({ ...card, image: imageBase64 });
+        };
+        reader.readAsDataURL(file);
+    }
+
+    const handleDownload = () => {
+        const json = JSON.stringify(card);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'data.json';
+        link.click();
+        URL.revokeObjectURL(url);
+      };
 
     if (card) {
         return (
-            <div className="card-unit">
+            <div className="card-unit"
+                onDragEnter={(e) => HandleDrag(e, setUnitImageDragActive)}
+                onDragLeave={(e) => HandleDrag(e, setUnitImageDragActive)}
+                onDragOver={(e) => HandleDrag(e, setUnitImageDragActive)}
+                onDrop={(e) => HandleDropFile(e, setUnitImageDragActive, (e) => addUnitImage(e))}>
+                <div className="card-controls">
+                    <button onClick={handleDownload}>Download</button>
+                </div>
                 {/* --- Unit image ---*/}
-                <img className="unitimage" src={iden} alt={defaultUnitImage} />
+                <img className="unitimage" src={card.image ? card.image : defaultUnitImage} alt={defaultUnitImage} />
                 {/* --- Card image ---*/}
                 <img src={mall} className="mall" />
                 {/* --- Card-type image ---*/}
@@ -37,7 +69,7 @@ const UnitCard = ({ card, addNewCard }) => {
                 {/* --- Upgrades ---*/}
                 <div className="upgrades">
                     {card.upgrades.map((upgrade, index) => (
-                        <UpgradeSlot type={upgrade.type} />
+                        <UpgradeSlot key={index} type={upgrade.type} />
                     ))}
                 </div>
                 <div className="keywords">
@@ -88,15 +120,7 @@ const UnitCard = ({ card, addNewCard }) => {
     }
     else {
         return (
-            <div className="card-unit placeholder noprint">
-                <select onChange={(e)=> addNewCard(CreateCard(e.target.value))}>
-                    <option disabled selected>Select a faction</option>
-                    <option value={"empire"}>Empire</option>
-                    <option value={"rebels"}>Rebels</option>
-                    <option value={"galacticrepublic"}>Galactic republic</option>
-                    <option value={"test"}>test</option>
-                </select>
-            </div>
+            <NewUnitCard addNewCard={updateCard} />
         )
     }
 }
