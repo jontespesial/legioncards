@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Card from './Card';
-import CardBuilder from './CardBuilder';
+import CardUnitBuilder from './CardUnitBuilder';
 import defaultCard from "./defaultCard.json"
 import darthvader from "./resources/defaulcards/darthvader.json"
 import emptyCard from "./emptyCard.json"
@@ -34,7 +34,7 @@ return (
       <Card card={card} empty={empty} />
       <button className='noprint' onClick={()=>setCard(emptyCard)}> Rensa kort </button>
       <button className='noprint' onClick={()=>setEmpty(!empty)}> ändra kort </button>
-      <CardBuilder card={card} updateCard={updateCard} />
+      <CardUnitBuilder card={card} updateCard={updateCard} />
       </div>
     </div>
   );

@@ -1,5 +1,7 @@
 :root {
   --sw-blue-light: rgb(75, 103, 197);
+
+  --green-save: rgb(0, 177, 6);
 }
 
 body {

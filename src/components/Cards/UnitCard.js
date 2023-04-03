@@ -17,12 +17,15 @@ import iden from "../../resources/imgs/unitImages/iden.png"
 import UnitType from "../../UnitType"
 import CardFaction from "../CardFaction"
 import NewUnitCard from "./NewUnitCard"
-import { HandleDrag, HandleDropFile } from "../FileHandler"
+import { HandleDrag, HandleDropFile, ReadJson } from "../FileHandler"
+import CardUnitBuilder from "../../CardUnitBuilder"
 
 const UnitCard = ({ card, updateCard }) => {
 
     // drag state
     const [unitImageDragActive, setUnitImageDragActive] = useState(false);
+    // edit state
+    const [editing, setEditing] = useState(false);
 
     const addUnitImage = (file) => {
         console.log("File: ", file)
@@ -34,6 +37,31 @@ const UnitCard = ({ card, updateCard }) => {
         reader.readAsDataURL(file);
     }
 
+    const handleFileDrop = async (file) => {
+        switch (file.type) {
+            case "image/png": {
+                console.log("Filetype was png, updating unit image")
+                updateUnitImage(file)
+                break;
+            }
+            case "application/json": {
+                console.log("Filetype was json, reading file and changing the card")
+                const card = await ReadJson(file)
+                updateCard(card)
+                break;
+            }
+        }
+    }
+
+    const updateUnitImage = (pngImage) => {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageBase64 = e.target.result;
+            updateCard({ ...card, image: imageBase64 });
+        };
+        reader.readAsDataURL(pngImage);
+    }
+
     const handleDownload = () => {
         const json = JSON.stringify(card);
         const blob = new Blob([json], { type: 'application/json' });
@@ -43,7 +71,7 @@ const UnitCard = ({ card, updateCard }) => {
         link.download = 'data.json';
         link.click();
         URL.revokeObjectURL(url);
-      };
+    };
 
     if (card) {
         return (
@@ -51,10 +79,15 @@ const UnitCard = ({ card, updateCard }) => {
                 onDragEnter={(e) => HandleDrag(e, setUnitImageDragActive)}
                 onDragLeave={(e) => HandleDrag(e, setUnitImageDragActive)}
                 onDragOver={(e) => HandleDrag(e, setUnitImageDragActive)}
-                onDrop={(e) => HandleDropFile(e, setUnitImageDragActive, (e) => addUnitImage(e))}>
-                <div className="card-controls">
-                    <button onClick={handleDownload}>Download</button>
+                onDrop={async (e) => HandleDropFile(e, setUnitImageDragActive, (e) => handleFileDrop(e))}>
+                <div className="card-controls noprint">
+                    <button className="edit" onClick={()=>setEditing(!editing)}>Edit</button>
+                    <button className="download" onClick={handleDownload}>Download</button>
+                    <button className="delete" onClick={handleDownload}>Delete</button>
                 </div>
+
+                {editing && <div className="modal"> <CardUnitBuilder card={card} updateCard={updateCard} closeEditor={()=>setEditing(false)} /> </div>}
+
                 {/* --- Unit image ---*/}
                 <img className="unitimage" src={card.image ? card.image : defaultUnitImage} alt={defaultUnitImage} />
                 {/* --- Card image ---*/}

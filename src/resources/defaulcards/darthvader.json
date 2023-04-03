@@ -70,11 +70,11 @@
             "keywords": [
                 {
                     "title": "Impact",
-                    "level": "3"
+                    "level": 3
                 },
                 {
                     "title": "Pierce",
-                    "level": "3"
+                    "level": 3
                 }
             ]
         },

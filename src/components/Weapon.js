@@ -78,7 +78,7 @@ const Weapon = ({ weapon, numberOfWeapons }) => {
             </div>
             <div className="keywordarea">
                 {
-                    (weapon.keaywords != undefined) && weapon.keywords.map((keyword, index)=>(
+                    (weapon.keywords != undefined) && weapon.keywords.map((keyword, index)=>(
                         <p className="font-title">{keyword.title + ((keyword.level != null) ?  " " + keyword.level : "") + ((index + 1 < (weapon.keywords.length)) ? ", " : "")}</p>
                     ))
                 }

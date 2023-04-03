@@ -3,7 +3,7 @@ import "./CardBuilder.css"
 import ToggleSwitch from "./components/ToggleSwitch";
 import UpgradeSlot from "./components/UpgradeSlot";
 
-const CardBuilder = ({ card, updateCard }) => {
+const CardUnitBuilder = ({ card, updateCard, closeEditor }) => {
 
     const updateCardTitle = (input) => {
         const newCard = { ...card, title: input };
@@ -30,8 +30,26 @@ const CardBuilder = ({ card, updateCard }) => {
         updateCard(updatedCard);
     }
 
+    const updateWeaponKeywordTitle = (input, keywordIndex, weaponIndex) => {
+        const updatedWeapons = [...card.weapons];
+        const updatedKeywords = [...updatedWeapons[weaponIndex].keywords];
+        updatedKeywords[keywordIndex] = { ...updatedKeywords[keywordIndex], title: input };
+        updatedWeapons[weaponIndex] = { ...updatedWeapons[weaponIndex], keywords: updatedKeywords };
+        const updatedCard = { ...card, weapons: updatedWeapons };
+        updateCard(updatedCard);
+    }
+
     const updateKeywordLevel = (input, index) => {
         const updatedCard = { ...card, keywords: card.keywords.map((keyword, i) => i === index ? { ...keyword, level: input } : keyword) };
+        updateCard(updatedCard);
+    }
+
+    const updateWeaponKeywordLevel = (input, keywordIndex, weaponIndex) => {
+        const updatedWeapons = [...card.weapons];
+        const updatedKeywords = [...updatedWeapons[weaponIndex].keywords];
+        updatedKeywords[keywordIndex] = { ...updatedKeywords[keywordIndex], level: input };
+        updatedWeapons[weaponIndex] = { ...updatedWeapons[weaponIndex], keywords: updatedKeywords };
+        const updatedCard = { ...card, weapons: updatedWeapons };
         updateCard(updatedCard);
     }
 
@@ -100,7 +118,7 @@ const CardBuilder = ({ card, updateCard }) => {
     }
 
     return (
-        <div className="cardbuilder-container noprint">
+        <div className="cardbuilder-container unit noprint">
             <div className="row">
                 <label >Namn: </label>
                 <input id="card-title" type="text" className="form" value={card.title} onChange={(e) => updateCardTitle(e.target.value)} />
@@ -118,7 +136,7 @@ const CardBuilder = ({ card, updateCard }) => {
                     <option value={"operative"} selected={card.unitType == "special"}>Special forces</option>
                     <option value={"support"} selected={card.unitType == "support"}>Support</option>
                     <option value={"heavy"} selected={card.unitType == "heavy"}>Heavy</option>
-                
+
                 </select>
                 <label>Count: </label>
                 <input type="number" min="1" max="9" className="form number" value={card.unitCount} onChange={(e) => updateCard({ ...card, unitCount: e.target.value })} />
@@ -157,12 +175,12 @@ const CardBuilder = ({ card, updateCard }) => {
                 <label>Health: </label>
                 <input type="number" min="1" max="9" className="form number" value={card.hp} onChange={(e) => updateHealth(e.target.value)} />
                 {/* --- Courage --- */}
-                <select className="form" type="number" onChange={(e) => updateCard({ ...card, courage: {...card.courage, type: e.target.value } })} >
+                <select className="form" type="number" onChange={(e) => updateCard({ ...card, courage: { ...card.courage, type: e.target.value } })} >
                     <option selected={card.courage.type == null}></option>
-                    <option selected={card.courage.type == "courage"} value="courage">courge</option>
+                    <option selected={card.courage.type == "courage"} value="courage">courage</option>
                     <option selected={card.courage.type == "damage"} value="damage">damage</option>
                 </select>
-                <input type="number" min="1" max="9" className="form number" value={card.courage.amount} onChange={(e) => updateCard({ ...card, courage: {...card.courage, amount: e.target.value } })} />
+                <input type="number" min="1" max="9" className="form number" value={card.courage.amount} onChange={(e) => updateCard({ ...card, courage: { ...card.courage, amount: e.target.value } })} />
             </div>
 
             <div className="row">
@@ -194,58 +212,16 @@ const CardBuilder = ({ card, updateCard }) => {
                     </datalist>
                     <input className="slider" list="test" type="range" min="1" max="3" value={card.speed} onChange={(e) => updateMovement(e.target.value)} />
                 </div>
-
             </div>
 
-            <div className="row">
-                <label >Weapons: </label>
-                <button className="form add" onClick={addWeapon} >+</button>
-            </div>
-            <div className="builder-weapons">
-                {
-                    card.weapons.map((weapon, index) => (
-                        <div className="row builder-weapon" key={index}>
-                            <label className="small">Name: </label>
-                            <input className="form title" type="text" value={weapon.title} onChange={(e) => updateWeaponTitle(e.target.value, index)} />
-                            <label className="smallest">Range from: </label>
-                            <select type="number" onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === index ? { ...weapon, range: { ...weapon.range, from: e.target.value } } : weapon) })} >
-                                <option selected={weapon.range.from == null}></option>
-                                <option selected={weapon.range.from == 0} value={0}>0</option>
-                                <option selected={weapon.range.from == 1} value={1}>1</option>
-                                <option selected={weapon.range.from == 2} value={2}>2</option>
-                                <option selected={weapon.range.from == 3} value={3}>3</option>
-                                <option selected={weapon.range.from == 4} value={4}>4</option>
-                                <option selected={weapon.range.from == 5} value={5}>5</option>
-                            </select>
-                            <label className="smallest">Range to: </label>
-                            <select type="number" onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === index ? { ...weapon, range: { ...weapon.range, to: e.target.value } } : weapon) })} >
-                                <option selected={weapon.range.to == null}></option>
-                                <option selected={weapon.range.to == 0} value={0}>0</option>
-                                <option selected={weapon.range.to == 1} value={1}>1</option>
-                                <option selected={weapon.range.to == 2} value={2}>2</option>
-                                <option selected={weapon.range.to == 3} value={3}>3</option>
-                                <option selected={weapon.range.to == 4} value={4}>4</option>
-                                <option selected={weapon.range.to == 5} value={5}>5</option>
-                            </select>
-                            <div className="form attackdice">
-                                <label className="smallest">White: </label>
-                                <input type="number" className="form number" min="0" max="8" value={weapon.white} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === index ? { ...weapon, white: e.target.value } : weapon) })} />
-                                <label className="smallest">Red: </label>
-                                <input type="number" className="form number" min="0" max="8" value={weapon.red} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === index ? { ...weapon, red: e.target.value } : weapon) })} />
-                                <label className="smallest">Black: </label>
-                                <input type="number" className="form number" min="0" max="8" value={weapon.black} onChange={(e) => updateCard({ ...card, weapons: card.weapons.map((weapon, i) => i === index ? { ...weapon, black: e.target.value } : weapon) })} />
-                            </div>
-                            <button className="form remove" onClick={() => removeWeapon(index)}>-</button>
-                        </div>
-                    ))
-                }
-            </div>
+
 
 
             <div className="row">
                 <label >Upgrades: </label>
                 <button id="add-keyword" className="form add" onClick={addUpgrade} >+</button>
             </div>
+            
             <div className="row">
                 <div className="builder-upgrades">
                     {
@@ -259,7 +235,7 @@ const CardBuilder = ({ card, updateCard }) => {
                                         <option value={"comms"} selected={upgrade.type == "comms"}>{"\u004f"}</option>
                                         <option value={"crew"} selected={upgrade.type == "crew"}>{"\u0041"}</option>
                                         <option value={"force"} selected={upgrade.type == "force"}>{"\u0046"}</option>
-                                        <option value={"xxxgear"} selected={upgrade.type == "gear"}>{"\u0047"}</option>
+                                        <option value={"gear"} selected={upgrade.type == "gear"}>{"\u0047"}</option>
                                         <option value={"generator"} selected={upgrade.type == "generator"}>{"\u0049"}</option>
                                         <option value={"grenades"} selected={upgrade.type == "grenades"}>{"\u004E"}</option>
                                         <option value={"hardpoint"} selected={upgrade.type == "hardpoint"}>{"\u0048"}</option>
@@ -277,8 +253,12 @@ const CardBuilder = ({ card, updateCard }) => {
                     }
                 </div>
             </div>
+
+            <div className="button-controls">
+                <button className="save" onClick={closeEditor}>Save</button>
+            </div>
         </div>
     )
 }
 
-export default CardBuilder
+export default CardUnitBuilder

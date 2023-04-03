@@ -1,17 +1,48 @@
+.modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+    z-index: 90;
+  }
+
 .cardbuilder-container {
     border: 2px solid black;
     display: flex;
     flex-direction: column;
     padding: 5px 10px;
     width: 800px;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    background-color: white;
+    z-index: 100;
+
+    max-height: 80%;
+    overflow-y: scroll;
 }
+
+.cardbuilder-container::-webkit-scrollbar {
+    display: none;
+  }
 
 .form {
     margin-right: 8px;
     padding: 5px;
 }
 
-label, label.small {
+label,
+label.small {
     margin: auto;
     margin-right: 5px;
     margin-left: 5px;
@@ -26,11 +57,19 @@ label.smallest {
     font-size: 6px;
 }
 
-.row {
+.row, .sub-row {
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.sub-row {
+    padding-left: 40px;
+}
+
+.nm-b {
+    margin-bottom: 0px;
 }
 
 input {
@@ -52,9 +91,7 @@ datalist {
     font-weight: bold;
 }
 
-.slider-container {
-
-}
+.slider-container {}
 
 input.number {
     width: 30px;
@@ -80,19 +117,17 @@ button.remove {
     background-color: rgb(197, 31, 2);
 }
 
-.builder-keywords {
-    
-}
+.builder-keywords {}
 
-.builder-keyword {
+.builder-keyword {}
 
-}
-
-.builder-keyword input, .builder-weapon input {
+.builder-keyword input,
+.builder-weapon input {
     padding: 2px;
 }
 
-.builder-keyword .title, .builder-weapon .title {
+.builder-keyword .title,
+.builder-weapon .title {
     width: 80px;
 }
 
@@ -105,10 +140,22 @@ button.remove {
     width: 22px;
 }
 
-.builder-keyword .description {
-
-}
+.builder-keyword .description {}
 
 .form.attackdice {
     font-size: 10px;
+}
+
+.button-controls {
+
+}
+
+.button-controls .save {
+    border: 0px;
+    background-color: var(--green-save);
+    color: white;
+    font-weight: bold;
+    height: 22px;
+    width: 60px;
+    border-radius: 10px;
 }

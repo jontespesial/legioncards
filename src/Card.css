@@ -11,9 +11,11 @@
     /*border: 2px solid rgb(255, 29, 29);*/
     box-sizing: border-box;
 }
+
 .card-unit.drag {
     position: absolute;
 }
+
 .card-upgrade {
     position: relative;
     /*
@@ -53,7 +55,8 @@ img.mall {
     object-fit: cover;
 }
 
-text, p {
+text,
+p {
     margin: 0px;
     padding: 0px;
     display: inline;
@@ -89,7 +92,7 @@ p.title {
 }
 
 p.title.unique::before {
-    content:"• ";
+    content: "• ";
 }
 
 /* --- Unit types --- */
@@ -105,7 +108,7 @@ p.unitcount {
     top: 20px;
     font-size: 10px;
     font-weight: 100;
-    color:white;
+    color: white;
 }
 
 /* --- Unit image --- */
@@ -139,7 +142,8 @@ p.hpstats {
     top: 0px;
 }
 
-.health, .health-points {
+.health,
+.health-points {
     position: absolute;
     right: 22px;
     top: 76px;
@@ -150,14 +154,18 @@ p.hpstats {
     content: "\004c";
 }
 
-.courage, .courage-points, .damage, .damage-points {
+.courage,
+.courage-points,
+.damage,
+.damage-points {
     position: absolute;
     right: 22px;
     top: 98px;
     color: rgb(255, 208, 22);
 }
 
-.damage, .damage-points {
+.damage,
+.damage-points {
     position: absolute;
     right: 22px;
     top: 98px;
@@ -167,6 +175,7 @@ p.hpstats {
 .courage::before {
     content: "\006d";
 }
+
 .damage::before {
     content: "\0056";
 }
@@ -179,11 +188,12 @@ p.hpstats {
 }
 
 .surge.attack {
-    top:130px;
+    top: 130px;
     right: 0px;
 }
+
 .surge.defence {
-    top:144px;
+    top: 144px;
     right: 0px;
 }
 
@@ -191,15 +201,18 @@ p.hpstats {
 .keywords {
     position: absolute;
     top: 30px;
-    left: 33px;
+    left: 35px;
     max-width: 225px;
 }
+
 .keyword.first {
     max-width: 200px;
 }
+
 .keyword {
     display: inline-block;
     line-height: 0.8;
+    min-width: 200px;
 }
 
 .keyword-title {
@@ -265,16 +278,24 @@ p.hpstats {
     right: 0px;
     bottom: 0px;
     left: 0px;
-  }
+}
 
-  /* --- Card Controls --- */
-  .card-controls {
+/* --- Card Controls --- */
+.card-controls {
     position: absolute;
     height: 100%;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     z-index: 20;
-  }
+}
+
+.card-controls button {
+    margin: 4px;
+}
+
+.card-unit:hover .card-controls {
+    display: flex;
+}
